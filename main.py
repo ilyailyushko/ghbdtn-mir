@@ -24,7 +24,7 @@ async def hello() -> str:
     return "Привет мир, как дела, хорошо?"
 
 
-app.get(f"{echo}/<name>")
+@app.get(f"{echo}/<name>")
 async def hello_name(name: str) -> str:
     """
     Эндпоинт: возвращает приветствие на русском с именем.
