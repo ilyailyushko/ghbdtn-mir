@@ -1,0 +1,16 @@
+# Локальное окружение и кэши Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Git и IDE
+.git/
+.gitignore
+.idea/
+.vscode/
+
+# Cursor
+.cursor/
