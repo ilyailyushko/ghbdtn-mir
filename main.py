@@ -2,7 +2,6 @@
 Минимальное FastAPI-приложение с одним эндпоинтом приветствия.
 """
 
-from curses import echo
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
 
@@ -24,15 +23,17 @@ async def hello() -> str:
     return "Привет мир, как дела, хорошо?"
 
 
-@app.get(f"{echo}/<name>")
+@app.get("/name/", response_class=PlainTextResponse)
 async def hello_name(name: str) -> str:
     """
-    Эндпоинт: возвращает приветствие на русском с именем.
+    Приветствие с именем.
+
+    Имя передаётся **query-параметром**: ``GET /name/?name=Иван``.
 
     Args:
-        name: Имя для приветствия.
+        name: Имя (обязательный query-параметр).
 
     Returns:
-        Строка ``Привет, {name}`` в теле ответа (text/plain).
+        Строка вида «Привет, …» с подставленным именем (text/plain).
     """
     return f"Привет, {name}"
